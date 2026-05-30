@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Botanical CDN</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: Georgia, "Times New Roman", serif; margin: 0; background: #f7f4ee; color: #2c2a24; }
+  header { padding: 2.5rem 1.5rem 1rem; max-width: 960px; margin: 0 auto; }
+  header img { height: 40px; }
+  h1 { font-size: 1.9rem; margin: 1rem 0 0.25rem; }
+  p.lede { color: #5c574c; max-width: 60ch; }
+  main { max-width: 960px; margin: 0 auto; padding: 1rem 1.5rem 4rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
+  figure { margin: 0; background: #fff; border: 1px solid #e3ddd0; border-radius: 8px; overflow: hidden; }
+  figure img { display: block; width: 100%; height: 160px; object-fit: cover; background: #eee; }
+  figcaption { font-size: 0.72rem; padding: 0.5rem 0.6rem; color: #6b6557; word-break: break-word; }
+  a { color: inherit; text-decoration: none; }
+  footer { max-width: 960px; margin: 0 auto; padding: 0 1.5rem 3rem; color: #8a8474; font-size: 0.8rem; }
+</style>
+</head>
+<body>
+<header>
+  <img src="/brand/sedim3nt-logo.svg" alt="sedim3nt" onerror="this.style.display='none'">
+  <h1>Botanical CDN</h1>
+  <p class="lede">Public-domain historical botanical illustrations (1675&ndash;1900) for the Rootwork medicinal plant database. Köhler's Medicinal Plants, Flora Batava, Sturm's Flora, Curtis's Botanical Magazine, and Maria Sibylla Merian.</p>
+</header>
+<main>
+  <div class="grid" id="grid"></div>
+</main>
+<footer>
+  Public Domain illustrations &middot; MIT repository structure &middot; Part of the SpiritTree ecosystem.
+</footer>
+<script>
+  const assets = [
+    "01-echinacea-purpurea-botanical-magazine-1787.jpg",
+    "02-dandelion-taraxacum-officinale-kohler-1887.jpg",
+    "03-mullein-verbascum-thapsus-flora-batava.jpg",
+    "04-milk-thistle-silybum-marianum-wellcome.jpg",
+    "05-chamomile-matricaria-chamomilla-flora-batava.jpg",
+    "06-marshmallow-althaea-officinalis-kohler.jpg",
+    "07-passionflower-passiflora-incarnata-merian-1675.jpg",
+    "08-st-johns-wort-hypericum-perforatum-sturm.jpg",
+    "09-elderberry-sambucus-nigra-sturm.jpg",
+    "10-rose-hips-rosa-canina-flora-batava.jpg",
+    "11-calendula-officinalis-thome.jpg",
+    "12-lavandula-angustifolia-thome.jpg",
+    "13-achillea-millefolium-kohler.jpg",
+    "14-valeriana-officinalis-kohler.jpg",
+    "15-ginkgo-biloba-siebold.jpg",
+    "16-symphytum-officinale-kohler.jpg",
+    "17-salvia-officinalis-kohler-bhl.jpg",
+    "18-crataegus-monogyna-flora-batava.jpg",
+    "19-mentha-piperita-kohler-bhl.jpg",
+    "20-arctium-lappa-hooker.jpg",
+    "21-urtica-dioica-thome.jpg",
+    "22-rosmarinus-officinalis-kohler.jpg",
+    "23-plantago-major-flora-batava.jpg",
+    "24-melissa-officinalis-kohler.jpg",
+    "25-foeniculum-vulgare-kohler.jpg",
+    "26-thymus-vulgaris-kohler-bhl.jpg",
+    "27-glycyrrhiza-glabra-kohler.jpg",
+    "28-artemisia-vulgaris-flora-batava.jpg",
+    "29-zingiber-officinale-kohler.jpg",
+    "30-curcuma-longa-wellcome.jpg"
+  ];
+  const grid = document.getElementById("grid");
+  for (const f of assets) {
+    const label = f.replace(/^\d+-/, "").replace(/\.jpg$/, "").replace(/-/g, " ");
+    const a = document.createElement("a");
+    a.href = "/" + f;
+    a.innerHTML = '<figure><img loading="lazy" src="/' + f + '" alt="' + label + '"><figcaption>' + label + '</figcaption></figure>';
+    grid.appendChild(a);
+  }
+</script>
+</body>
+</html>
